@@ -3,8 +3,9 @@
     {{#with current_page}}
       <h1>{{name}}</h1>
       <img src="{{leader}}" />
-      {{greeting}}
-      <input type="button" value="Click" />
+      {{#markdown}}
+        {{body}}
+      {{/markdown}}
     {{/with}}
   {{else}}
     <h1>Hello World!</h1>
