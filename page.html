@@ -1,5 +1,14 @@
 <template name="page">
-  <h1>Hello World!</h1>
-  {{greeting}}
-  <input type="button" value="Click" />
+  {{#if current_page}}
+    {{#with current_page}}
+      <h1>{{name}}</h1>
+      <img src="{{leader}}" />
+      {{greeting}}
+      <input type="button" value="Click" />
+    {{/with}}
+  {{else}}
+    <h1>Hello World!</h1>
+    {{greeting}}
+    <input type="button" value="Click" />
+  {{/if}}
 </template>

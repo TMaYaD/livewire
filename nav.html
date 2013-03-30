@@ -1,5 +1,11 @@
 <template name="nav">
   <ul class=nav>
-    <li><a href='test'>Test Page</a></li>
+    {{#each pages}}
+      {{> page_entry}}
+    {{/each}}
   </ul>
+</template>
+
+<template name='page_entry'>
+  <li class={{active}}><a href="/{{name}}">{{name}}</a></li>
 </template>
