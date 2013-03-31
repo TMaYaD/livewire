@@ -1,12 +1,14 @@
 Pages = new Meteor.Collection 'pages' if typeof Pages == 'undefined'
 
 Template.nav.pages = ->
-  Pages.find()
+  Pages.find
+    name:
+      $ne: 'Home'
 
 Template.page_entry.active = ->
-  'active' if Session.equals("current_page", this._id)
+  'active' if Session.equals("current_page", @name)
 
 Template.page_entry.events "click": (e)->
-  Session.set 'current_page', this._id
+  Meteor.Router.to "/#{@name}"
   e.preventDefault()
 

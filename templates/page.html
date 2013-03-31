@@ -1,0 +1,19 @@
+<template name="page">
+  {{#with current_page}}
+    <div class='container'>
+      <div class=row>
+        <div class='page-header span8'>
+          <h1>{{name}}</h1>
+        </div>
+        <img class='span4' src="{{leader}}" />
+      </div>
+      <div class=row>
+        <div class=span6>
+          {{#markdown}}
+            {{body}}
+          {{/markdown}}
+        </div>
+        <div class='span6' id='editor'></div>
+    </div>
+  {{/with}}
+</template>

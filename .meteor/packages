@@ -9,5 +9,6 @@ preserve-inputs
 coffeescript
 showdown
 bootstrap
-backbone
 ace
+HTML5-History-API
+router
