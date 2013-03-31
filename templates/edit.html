@@ -1,0 +1,25 @@
+<template name="edit">
+    <div class='container-fluid'>
+      <div class=row-fluid>
+        <div class=span6>{{> body}}</div>
+        {{> editor}}
+    </div>
+</template>
+
+<template name='body'>
+  {{#with current_page}}
+      <div class='page-header span8'>
+        <h1>{{name}}</h1>
+      </div>
+      <img class='span4' src="{{leader}}" />
+      <div class='span12'>
+        {{#markdown}}
+          {{body}}
+        {{/markdown}}
+      </div>
+  {{/with}}
+</template>
+
+<template name='editor'>
+  <div class='span6' id='editor'></div>
+</template>

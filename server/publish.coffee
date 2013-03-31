@@ -1,7 +1,5 @@
 Pages = new Meteor.Collection 'pages'
 
-Pages.remove Pages.find().fetch()[0]._id
-Pages.remove Pages.find().fetch()[0]._id
 if Pages.find().count() == 0
   Pages.insert
     name: 'Home'
@@ -13,3 +11,6 @@ if Pages.find().count() == 0
     leader: 'http://placehold.it/350x150'
     body: "Dillinger\n=========\n\nDillinger is a cloud-enabled HTML5 Markdown editor.\n\n  - Type some Markdown text in the left window\n  - See the HTML in the right\n  - Magic\n"
 
+  Pages.insert
+    name: 'Test'
+    leader: 'http://placehold.it/350x150/330099/ffffff'
