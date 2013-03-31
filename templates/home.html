@@ -1,6 +1,7 @@
 <template name='home'>
   {{#with current_page}}
-    <h1>Hello World!</h1>
-{{body}}
+    {{#markdown}}
+      {{body}}
+    {{/markdown}}
   {{/with}}
 </template>
