@@ -11,8 +11,10 @@ Template.editor.rendered = ->
 
   Deps.autorun ->
     page = Session.get 'current_page'
-    editor.setValue page.body if page
-    editor.clearSelection()
+    old_body = editor.getValue()
+    if page && page.body != old_body
+      editor.setValue page.body
+      editor.clearSelection()
 
   editor.getSession().on 'change', ->
     Pages.update Session.get('current_page_id'),
