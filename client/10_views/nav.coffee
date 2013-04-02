@@ -18,8 +18,14 @@ Template.nav.events
 Template.page_entry.helpers
   active: ->
     'active' if Session.equals("current_page", @name)
+  edit_mode: ->
+    Session.get 'edit_mode'
 
-Template.page_entry.events "click": (e)->
-  Meteor.Router.to "/#{@name}"
-  e.preventDefault()
+Template.page_entry.events
+  'click .page': (e)->
+    Meteor.Router.to "/#{@name}"
+    e.preventDefault()
+  'click .remove': (e)->
+    Pages.remove @_id
+    e.preventDefault()
 

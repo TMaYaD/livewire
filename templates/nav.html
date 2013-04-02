@@ -30,5 +30,8 @@
 </template>
 
 <template name='page_entry'>
-  <li class={{active}}><a href="/{{name}}">{{name}}</a></li>
+  <li class={{active}}><a class='page' href="/{{name}}">{{name}}</a></li>
+  {{#if edit_mode}}
+    <li><a class='remove' href="{{_id}}"><i class='icon-remove'></i></a></li>
+  {{/if}}
 </template>
