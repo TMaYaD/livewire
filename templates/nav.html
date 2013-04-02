@@ -15,6 +15,14 @@
               {{> page_entry}}
             {{/each}}
           </ul>
+          {{#if edit_mode}}
+            <form class="navbar-form pull-left new-page">
+              <div class='input-append'>
+                <input type="text" class="span2 name" placeholder='New Page'>
+                <button type="submit" class="btn">Add</button>
+              </div>
+            </form>
+          {{/if}}
         </div>
       </div>
     </div>
