@@ -5,9 +5,6 @@ Meteor.Router.add
   '/:name': (name)->
     Session.set 'current_page_name', name
     'page'
-  '/:name/edit': (name)->
-    Session.set 'current_page_name', name
-    'edit'
 
 Meteor.Router.filters
   'check_first_user': (page)->
@@ -22,5 +19,11 @@ Meteor.Router.filters
       'register'
     else
       page
+  'check_edit_mode': (page)->
+    if Session.get('edit_mode')
+      'edit'
+    else
+      page
 
 Meteor.Router.filter 'check_first_user', only: 'home'
+Meteor.Router.filter 'check_edit_mode', only: ['page', 'home']
