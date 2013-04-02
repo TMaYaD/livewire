@@ -1,5 +1,3 @@
-Pages = new Meteor.Collection 'pages' if typeof Pages == 'undefined'
-
 Template.body.helpers
   current_page: ->
     Session.get('current_page')

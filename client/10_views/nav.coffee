@@ -1,5 +1,3 @@
-Pages = new Meteor.Collection 'pages' if typeof Pages == 'undefined'
-
 Template.nav.pages = ->
   Pages.find
     name:
