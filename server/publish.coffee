@@ -14,3 +14,10 @@ if Pages.find().count() == 0
   Pages.insert
     name: 'Test'
     leader: 'http://placehold.it/350x150/330099/ffffff'
+
+Meteor.methods
+  first_user: ->
+    Meteor.users.find().count() == 0
+
+Accounts.validateNewUser (user)->
+  Meteor.users.find().count() == 0
