@@ -9,12 +9,12 @@ Template.nav.helpers
 
 Template.nav.events
   'submit form.new-page': (event)->
-    nameInput = event.currentTarget.getElementsByClassName('name')[0]
-    name = nameInput.value
+    $name = $('.name', event.currentTarget)
+    name = $name.val()
     Pages.insert
       name: name
     Meteor.Router.to "/#{name}"
-    nameInput.value = ''
+    $name.val ''
     event.preventDefault()
 
 Template.page_entry.helpers
