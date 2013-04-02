@@ -2,3 +2,8 @@
 #editor {
   height: 20em;
 }
+
+.navbar .nav > li > a.remove {
+  padding-left: 0px;
+  margin-left: -10px;
+}

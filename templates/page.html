@@ -2,17 +2,8 @@
   {{#with current_page}}
     <div class='container'>
       <div class=row>
-        <div class='page-header span8'>
-          <h1>{{name}}</h1>
-        </div>
-        <img class='span4' src="{{leader}}" />
+        {{> page_content}}
       </div>
-      <div class=row>
-        <div class=span6>
-          {{#markdown}}
-            {{{body}}}
-          {{/markdown}}
-        </div>
     </div>
   {{/with}}
 </template>

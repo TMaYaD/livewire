@@ -1,7 +1,3 @@
-Template.body.helpers
-  current_page: ->
-    Session.get('current_page')
-
 Template.editor.rendered = ->
   editor = ace.edit 'editor'
   editor.setTheme 'ace/theme/monokai'

@@ -1,0 +1,13 @@
+<template name='page_content'>
+  {{#with current_page}}
+    <div class='page-header span8'>
+      <h1>{{name}}</h1>
+    </div>
+    <img class='span4' src="{{leader}}" />
+    <div class='span12'>
+      {{#markdown}}
+        {{{body}}}
+      {{/markdown}}
+    </div>
+  {{/with}}
+</template>
