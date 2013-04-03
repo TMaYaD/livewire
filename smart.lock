@@ -11,7 +11,11 @@
         "branch": "master"
       },
       "router": {},
-      "HTML5-History-API": {}
+      "HTML5-History-API": {},
+      "filepicker": {
+        "git": "git://github.com/TMaYaD/meteor.git",
+        "branch": "patch-2"
+      }
     },
     "packages": {
       "ace": {
@@ -28,6 +32,11 @@
         "git": "https://github.com/tmeasday/meteor-HTML5-History-API.git",
         "tag": "v0.1.2",
         "commit": "72333bfa71ae1ca75243085e83200eef40818088"
+      },
+      "filepicker": {
+        "git": "git://github.com/TMaYaD/meteor.git",
+        "branch": "patch-2",
+        "commit": "282c16fb1063c9ade316d265915c39bcae48b460"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",

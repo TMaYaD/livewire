@@ -9,6 +9,10 @@
       "branch": "master"
     },
     "router": {},
-    "HTML5-History-API": {}
+    "HTML5-History-API": {},
+    "filepicker": {
+      "git": "git://github.com/TMaYaD/meteor.git",
+      "branch": "patch-2"
+    }
   }
 }

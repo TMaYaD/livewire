@@ -9,6 +9,33 @@ Template.edit.events
         name: $this.val()
     Meteor.Router.to "/#{$this.val()}"
     event.preventDefault()
+  'dblclick .leader': (event)->
+    $this = $(event.currentTarget)
+
+    $this.html('Drop image here').css
+      backgroundColor: '#F6F6F6'
+      border: '1px dashed #666'
+
+    filepicker.makeDropPane $this,
+      mimetype: 'image/*'
+      access: 'public'
+      dragEnter: ->
+        $this.html('Drop to upload').css
+          backgroundColor: '#E0E0E0'
+          border: '1px solid #000'
+      dragLeave: ->
+        $this.html('Drop image here').css
+          backgroundColor: '#F6F6F6'
+          border: '1px dashed #666'
+      onSuccess: (fpFiles)->
+        $this.html "<img src='#{fpFiles[0].url}'>"
+      onError: (type, message)->
+        $this.html "(#{type}) #{message}"
+      onStart: (fpFiles)->
+        $this.html "<div class=progress><div class=bar style='width: 0%;'></div></div>"
+      onProgress: (percentage)->
+        $this.html "<div class=progress><div class=bar style='width: #{percentage}%;'></div></div>"
+    event.preventDefault()
 
 Template.ace_editor.rendered = ->
   editor = ace.edit 'editor'
