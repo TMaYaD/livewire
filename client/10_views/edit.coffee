@@ -10,31 +10,44 @@ Template.edit.events
     Meteor.Router.to "/#{$this.val()}"
     event.preventDefault()
   'dblclick .leader': (event)->
-    $this = $(event.currentTarget)
+    $drop_pane = $(event.currentTarget)
 
-    $this.html('Drop image here').css
+    $drop_pane.html('Drop image here').css
       backgroundColor: '#F6F6F6'
       border: '1px dashed #666'
 
-    filepicker.makeDropPane $this,
+    filepicker.makeDropPane $drop_pane,
       mimetype: 'image/*'
-      access: 'public'
       dragEnter: ->
-        $this.html('Drop to upload').css
+        $drop_pane.html('Drop to upload').css
           backgroundColor: '#E0E0E0'
           border: '1px solid #000'
       dragLeave: ->
-        $this.html('Drop image here').css
+        $drop_pane.html('Drop image here').css
           backgroundColor: '#F6F6F6'
           border: '1px dashed #666'
       onSuccess: (fpFiles)->
-        $this.html "<img src='#{fpFiles[0].url}'>"
+        conversion_options =
+          width: 800
+          height: 450
+          fit: 'crop'
+          align: 'faces'
+        filepicker.convert fpFiles[0],
+          conversion_options
+          location: 's3'
+          access: 'public'
+          (fpFile)->
+            $drop_pane.html "<img src='#{fpFile.url}'>"
+          (fpError)->
+            console.log fpError
+          (percentage)->
+            $drop_pane.html "<div class='progress progress-warning'>Converting...<div class=bar style='width: #{percentage}%;'></div></div>"
       onError: (type, message)->
-        $this.html "(#{type}) #{message}"
+        $drop_pane.html "(#{type}) #{message}"
       onStart: (fpFiles)->
-        $this.html "<div class=progress><div class=bar style='width: 0%;'></div></div>"
+        $drop_pane.html "<div class=progress><div class=bar style='width: 0%;'></div></div>"
       onProgress: (percentage)->
-        $this.html "<div class=progress><div class=bar style='width: #{percentage}%;'></div></div>"
+        $drop_pane.html "<div class=progress>Uploading...<div class=bar style='width: #{percentage}%;'></div></div>"
     event.preventDefault()
 
 Template.ace_editor.rendered = ->
