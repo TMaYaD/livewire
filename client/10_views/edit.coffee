@@ -37,7 +37,9 @@ Template.edit.events
           location: 's3'
           access: 'public'
           (fpFile)->
-            $drop_pane.html "<img src='#{fpFile.url}'>"
+            Pages.update Session.get('current_page_id'),
+              $set:
+                leader: fpFile.url
           (fpError)->
             console.log fpError
           (percentage)->
