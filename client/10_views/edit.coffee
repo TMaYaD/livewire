@@ -29,7 +29,7 @@ Template.edit.events
       onSuccess: (fpFiles)->
         conversion_options =
           width: 800
-          height: 450
+          height: 350
           fit: 'crop'
           align: 'faces'
         filepicker.convert fpFiles[0],

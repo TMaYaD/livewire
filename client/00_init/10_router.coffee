@@ -1,7 +1,7 @@
 Meteor.Router.add
   '/': ->
     Session.set 'current_page_name', 'Home'
-    'home'
+    'page'
   '/:name': (name)->
     Session.set 'current_page_name', name
     'page'
