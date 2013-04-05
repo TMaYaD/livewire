@@ -25,5 +25,5 @@ Meteor.Router.filters
     else
       page
 
-Meteor.Router.filter 'check_first_user', only: 'home'
+Meteor.Router.filter 'check_first_user', only: 'edit'
 Meteor.Router.filter 'check_edit_mode', only: ['page', 'home']

@@ -1,3 +1,7 @@
+Template.edit.helpers
+  current_page: ->
+    Session.get('current_page')
+
 Template.edit.events
   'dblclick h1': (event)->
     $this = $(event.currentTarget)
