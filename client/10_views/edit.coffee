@@ -1,13 +1,12 @@
 Template.edit.helpers
   current_page: ->
-    Session.get('current_page')
+    Session.get 'current_page'
+  home_page: ->
+    Session.get('current_page_name') == 'Home'
 
 Template.edit.events
-  'dblclick h1': (event)->
+  'change [name=name]': (event)->
     $this = $(event.currentTarget)
-    $this.replaceWith "<form class='heading input-append'><input type=text name=heading value='#{@name}'><button class=btn type=submit>Save</button></form>"
-  'submit form.heading': (event)->
-    $this = $('[name=heading]', event.currentTarget)
     Pages.update @_id,
       $set:
         name: $this.val()
