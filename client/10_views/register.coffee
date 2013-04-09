@@ -6,9 +6,6 @@ Template.register.events
       profile:
         filepicker_key: $('[name=filepicker]', event.currentTarget).val()
       (error)->
-        if error
-          console.log error
-        else
-          Meteor.Router.to '/' unless error
+        console.log error if error
 
     event.preventDefault()

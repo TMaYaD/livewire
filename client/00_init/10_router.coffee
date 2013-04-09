@@ -7,7 +7,10 @@ Meteor.Router.add
     'page'
 
 Meteor.Router.filters
-  'check_first_user': (page)->
+  'check_mode': (page)->
+    return page unless Session.get('edit_mode')
+
+    # Check if this is the first time
     Meteor.call 'first_user', (e, result) ->
       if e
         console.log e
@@ -15,15 +18,12 @@ Meteor.Router.filters
       else
         old_value = Session.get 'first_user'
         Session.set 'first_user', result unless result == old_value
+
     if Session.get('first_user')
       'register'
-    else
-      page
-  'check_edit_mode': (page)->
-    if Session.get('edit_mode')
+    else if Meteor.userId()
       'edit'
     else
-      page
+      'login'
 
-Meteor.Router.filter 'check_first_user', only: 'edit'
-Meteor.Router.filter 'check_edit_mode', only: ['page', 'home']
+Meteor.Router.filter 'check_mode'

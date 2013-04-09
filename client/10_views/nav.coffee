@@ -7,6 +7,9 @@ Template.nav.helpers
   edit_mode: ->
     Session.get 'edit_mode'
 
+  loggedin: ->
+    Meteor.userId()
+
 Template.nav.events
   'submit form.new-page': (event)->
     $name = $('.name', event.currentTarget)
@@ -16,6 +19,10 @@ Template.nav.events
     Meteor.Router.to "/#{name}"
     $name.val ''
     event.preventDefault()
+  'click a.logout': (e)->
+    Meteor.logout (error)->
+      console.log error if error
+    e.preventDefault()
 
 Template.page_entry.helpers
   active: ->

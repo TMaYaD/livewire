@@ -23,6 +23,11 @@
               </div>
             </form>
           {{/if}}
+          {{#if loggedin}}
+            <ul class='nav user pull-right'>
+              <li><a class='logout' href='#'><i class='icon-off'></i>Sign out</a></li>
+            </ul>
+          {{/if}}
         </div>
       </div>
     </div>
